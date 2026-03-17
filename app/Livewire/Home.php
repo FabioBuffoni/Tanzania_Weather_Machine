@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Livewire;
+use Livewire\Attributes\Layout;
 
 use Livewire\Component;
 
-#[Layout('components.layout.default')]
+#[Layout('components.layouts.default')]
 class Home extends Component
 {
     public function render()
