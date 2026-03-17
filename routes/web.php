@@ -4,6 +4,7 @@ use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use App\Livewire\Settings\TwoFactor;
+use App\Livewire\WeatherPage;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use App\Livewire\Home;
@@ -17,7 +18,7 @@ Route::get('/', Home::class ) -> name('home');
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
-Route::view("weather", "livewire.weather-page")->name('weather');
+Route::get("weather", WeatherPage::class)->name('weather');
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
