@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Third Party Services
@@ -35,4 +34,14 @@ return [
         ],
     ],
 
+    'twilio' => [
+        'sid' => env('TWILIO_SID'),
+        'token' => env('TWILIO_TOKEN'),
+        'from' => env('TWILIO_FROM'),
+        'messaging_service_sid' => env('TWILIO_MESSAGING_SERVICE_SID'),
+    ],
+
+    'weather_api' => [
+        'url' => env('WEATHER_PREDICTION_API_URL', 'http://127.0.0.1:8080'),
+    ],
 ];
