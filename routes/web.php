@@ -19,6 +19,7 @@ Route::get('phone-registration', PhoneRegistration::class ) -> name('phone-regis
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
+Route::view("weather", "livewire.weather-page")->name('weather');
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
