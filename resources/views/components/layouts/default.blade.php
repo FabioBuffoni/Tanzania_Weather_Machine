@@ -5,6 +5,8 @@
 </head>
 <body>
 
+<x-navbar/>
+
 <div>
 
     {{ $slot }}
