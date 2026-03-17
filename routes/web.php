@@ -7,6 +7,7 @@ use App\Livewire\Settings\TwoFactor;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use App\Livewire\Home;
+use App\Livewire\PhoneRegistration;
 
 //Route::get('/', function () {
 //    return view('welcome');
@@ -14,6 +15,7 @@ use App\Livewire\Home;
 
 Route::get('/', Home::class ) -> name('home');
 
+Route::get('phone-registration', PhoneRegistration::class ) -> name('phone-registration');
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
