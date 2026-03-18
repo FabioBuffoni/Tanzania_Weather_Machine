@@ -73,7 +73,3 @@ Route::get('/send-weather', function () {
     // --- 4. TERUGGAVE ---
     return "SMS verzonden naar {$to}";
 });
-
-Route::get('/ping', function () {
-    return 'pong';
-});
