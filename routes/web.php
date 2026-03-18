@@ -42,3 +42,38 @@ Route::middleware(['auth'])->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+use Twilio\Rest\Client;
+
+Route::get('/send-weather', function () {
+
+    // --- 1. JOUW WEERBERICHT ---
+    $city = 'Geel';
+    $temp = 22;
+    $feels = 20;
+    $desc = 'zonnig';
+    $humidity = 40;
+    $wind = 2.5;
+
+    $text = "Weerupdate {$city}: {$desc}, {$temp}°C (gevoel {$feels}°C), vocht {$humidity}%, wind {$wind} m/s";
+
+
+    // --- 2. Twilio client ---
+    $twilio = new Client(env('TWILIO_SID'), env('TWILIO_TOKEN'));
+    $from = env('TWILIO_FROM');
+    $to   = env('SINGLE_SMS_TO');   // <-- komt uit je .env
+
+
+    // --- 3. SMS versturen ---
+    $twilio->messages->create($to, [
+        'from' => $from,
+        'body' => $text,
+    ]);
+
+    // --- 4. TERUGGAVE ---
+    return "SMS verzonden naar {$to}";
+});
+
+Route::get('/ping', function () {
+    return 'pong';
+});
